@@ -31,3 +31,16 @@ export type UpdateInterviewRoundParams =
       status: Status;
       finalRoleId?: string | null;
     };
+
+export interface AddQuestionParams {
+  question: string;
+  interviewRoundId: number;
+}
+
+export interface UpdateQAParams {
+  // this is for MVP with localStorage, interviewRoundId is not neceessary for real backend
+  interviewRoundId: number;
+  qaId: number;
+  question?: string;
+  answer?: string;
+}

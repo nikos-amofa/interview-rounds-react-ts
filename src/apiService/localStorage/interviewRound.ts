@@ -1,6 +1,10 @@
 import { InterviewRounds } from "@/types/interviewRound";
 
 export const INTERVIEW_ROUNDS_KEY_NAME = "INTERVIEW_ROUNDS";
+export const QA_LIST_KEY_NAME = "QA_LIST";
+
+export const qaListKeyName = (id: number) =>
+  `${INTERVIEW_ROUNDS_KEY_NAME}/${id}/${QA_LIST_KEY_NAME}`;
 
 export const INTERVIEW_ROUNDS: InterviewRounds = [
   {

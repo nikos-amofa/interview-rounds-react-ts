@@ -14,7 +14,7 @@ export const AutomationPage = () => {
     dispatch(fetchRoleListRequest());
     dispatch(fetchCandidateDataRequest());
     dispatch(fetchInterviewRoundsRequest());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
