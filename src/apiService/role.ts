@@ -1,5 +1,5 @@
 import { Role } from "@/types/role";
-import { ROLE_LIST_KEY_NAME } from "./constants/role";
+import { ROLE_LIST_KEY_NAME } from "./localStorage/role";
 
 export const fetchRoleListFromApi = () => {
   const data = localStorage.getItem(ROLE_LIST_KEY_NAME);

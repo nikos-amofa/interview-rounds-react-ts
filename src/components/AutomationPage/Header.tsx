@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import Avatar from "@/components/common/Avatar";
-import Box from "@/components/common/Box";
-import Typography from "@/components/common/Typography";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { RootState } from "@/store";
 import { styled } from "@mui/material/styles";
 import { deepPurple } from "@mui/material/colors";

@@ -160,11 +160,12 @@ Acceptance Criteria:
     "status_updated_at": "2023-12-14T10:00:00.000Z",
     "fitting_role_ids": null,
     "order": 3
-  }
+  },
   {
     "id": 4,
     "title": "Final Round: Cultural Interview",
     "status": "LOCKED",
+    "status_updated_at": null,
     "final_role_id": null,
     "order": 4
   }
@@ -268,6 +269,7 @@ Description:
 Acceptance Criteria:
 
 - The API request `get("/interview/questions?keyword=React")` returns questions by the following format
+- For simplicity, don't implement pagination in MVP
 
 ```json
 {

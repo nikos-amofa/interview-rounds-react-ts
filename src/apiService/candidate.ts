@@ -1,5 +1,5 @@
 import { Candidate } from "@/types/candidate";
-import { CANDIDATE_KEY_NAME } from "./constants/candidate";
+import { CANDIDATE_KEY_NAME } from "./localStorage/candidate";
 
 export const fetchCandidateFromApi = () => {
   const data = localStorage.getItem(CANDIDATE_KEY_NAME);

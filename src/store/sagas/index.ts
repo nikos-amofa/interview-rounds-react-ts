@@ -1,7 +1,8 @@
 import { all } from "redux-saga/effects";
-import { roleSaga } from "./roleSaga";
 import { candidateSaga } from "./candidateSaga";
+import { interviewRoundSaga } from "./interviewRoundSaga";
+import { roleSaga } from "./roleSaga";
 
 export function* rootSaga() {
-  yield all([roleSaga(), candidateSaga()]);
+  yield all([candidateSaga(), interviewRoundSaga(), roleSaga()]);
 }
