@@ -1,4 +1,8 @@
-export const ROLE_LIST = [
+import { Role } from "@/types/role";
+
+export const ROLE_LIST_KEY_NAME = "ROLE_LIST";
+
+export const ROLE_LIST: Role[] = [
   {
     id: "frontend_developer_react",
     title: "Frontend Developer (React)",

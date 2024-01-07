@@ -74,7 +74,7 @@ Acceptance Criteria:
 
 ```json
 {
-  "profile_picture_url": "url to the image file",
+  "avatar_url": "url to the image file",
   "first_name": "Joe",
   "last_name": "Johnson",
   "role_id": 2
@@ -355,7 +355,7 @@ Acceptance Criteria:
     "answer": "blah blah blah",
     "interviewer": {
       "id": 1,
-      "profile_picture_url": "https://image.png",
+      "avatar_url": "https://image.png",
       "first_name": "Alice",
       "last_name": "Johnson"
     }
@@ -366,7 +366,7 @@ Acceptance Criteria:
     "answer": "blah blah blah",
     "interviewer": {
       "id": 10,
-      "profile_picture_url": "https://image.png",
+      "avatar_url": "https://image.png",
       "first_name": "Alice",
       "last_name": "Johnson"
     }
@@ -377,7 +377,7 @@ Acceptance Criteria:
     "answer": "blah blah blah",
     "interviewer": {
       "id": 4,
-      "profile_picture_url": "https://image.png",
+      "avatar_url": "https://image.png",
       "first_name": "Alice",
       "last_name": "Johnson"
     }

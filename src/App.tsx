@@ -1,20 +1,17 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
-import { FETCH_ROLE_LIST_REQUEST } from "@/store/sagas/roleSaga";
-import { RootState } from "@/store";
+import { AutomationPage } from "./components/AutomationPage";
+import Button from "@/components/common/Button";
+import { resetLocalStorage } from "./apiService/resetLocalStorage";
+import Box from "@/components/common/Box";
 
 function App() {
-  const dispatch = useDispatch();
-  const { roleList } = useSelector((state: RootState) => state.role);
-
-  useEffect(() => {
-    dispatch({ type: FETCH_ROLE_LIST_REQUEST });
-  }, []);
-
-  console.log("roleList", roleList);
-
-  return <></>;
+  return (
+    <Box>
+      <Button onClick={resetLocalStorage} sx={{}}>
+        Reset LocalStorage
+      </Button>
+      <AutomationPage />
+    </Box>
+  );
 }
 
 export default App;

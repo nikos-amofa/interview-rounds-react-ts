@@ -1,15 +1,16 @@
-import { put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { setRoleListAction } from "@/store/features/roleSlice";
-import { ROLE_LIST } from "@/constants/role";
+import { fetchRoleListFromApi } from "@/apiService/role";
+import { Role } from "@/types/role";
 
 // action types
-export const FETCH_ROLE_LIST_REQUEST = "FETCH_ROLE_LIST_REQUEST";
+const FETCH_ROLE_LIST_REQUEST = "FETCH_ROLE_LIST_REQUEST";
 
 // Action creators
 export const fetchRoleListRequest = () => ({ type: FETCH_ROLE_LIST_REQUEST });
 
 function* fetchRoleList() {
-  const list = [...ROLE_LIST];
+  const list: Role[] = yield call(fetchRoleListFromApi);
   yield put(setRoleListAction(list));
 }
 
