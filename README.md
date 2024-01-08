@@ -4,7 +4,7 @@ This is the take-home test project "Interview Round Automation" - only the front
 
 The requirement is [here](./Take%20Home%20Interview%20-%20Frontend%20Engineer%20-%20version%20A.pdf)
 
-My Tech design is [here](./TechDesign.md)
+My Tech design is [here](./TechDesign.md). The features implemented in the MVP are marked by check(✅) in the Tech design.
 
 ## Steps to Run
 
