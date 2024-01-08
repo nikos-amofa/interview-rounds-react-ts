@@ -4,6 +4,7 @@ import { InterviewRoundAccordion } from "./InterviewRoundAccordion";
 import { useState } from "react";
 import { AddQuestionModal } from "./AddQuestionModal";
 import { addQuestionRequest } from "@/store/sagas/interviewRoundSaga";
+import { Box } from "@mui/material";
 
 export const InterviewRoundList = () => {
   const [addQuestionModalOpen, setAddQuestionModalOpen] = useState(false);
@@ -40,7 +41,7 @@ export const InterviewRoundList = () => {
   };
 
   return (
-    <>
+    <Box sx={{ marginTop: 3, marginBottom: 3 }}>
       {interviewRoundList.map((ir) => (
         <InterviewRoundAccordion
           key={ir.id}
@@ -54,6 +55,6 @@ export const InterviewRoundList = () => {
         onClose={handleModalClose}
         onAddQuestion={handleAddQuestion}
       />
-    </>
+    </Box>
   );
 };

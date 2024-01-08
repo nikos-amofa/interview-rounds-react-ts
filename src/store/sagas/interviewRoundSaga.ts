@@ -2,7 +2,6 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import {
   addQAListByInterviewRoundIdAction,
   setInterviewRoundListAction,
-  updateInterviewRoundAction,
   addQAToInterviewRoundAction,
   updateQAAction,
 } from "../features/interviewRoundSlice";
@@ -15,8 +14,6 @@ import {
 } from "@/apiService/interviewRound";
 import {
   AddQuestionParams,
-  FinalInterviewRound,
-  InterviewRound,
   InterviewRounds,
   UpdateInterviewRoundParams,
   UpdateQAParams,
@@ -48,12 +45,9 @@ export type UpdateQAAction = PayloadAction<UpdateQAParams, typeof UPDATE_QA_REQU
 
 // action creators
 export const fetchInterviewRoundsRequest = () => ({ type: FETCH_INTERVIEW_ROUNDS_REQUEST });
-export const updateInterviewRoundRequest = (
-  id: number,
-  data: InterviewRound | FinalInterviewRound
-) => ({
+export const updateInterviewRoundRequest = (payload: UpdateInterviewRoundParams) => ({
   type: UPDATE_INTERVIEW_ROUND_REQUEST,
-  payload: { id, data },
+  payload,
 });
 export const fetchQAListByInterviewRoundIdRequest = (id: number) => ({
   type: FETCH_QA_LIST_BY_INTERVIEW_ROUND_ID_REQUEST,
@@ -76,11 +70,8 @@ function* fetchInterviewRounds() {
 }
 
 function* updateInterviewRound({ payload }: UpdateInterviewRoundAction) {
-  const response: InterviewRound | FinalInterviewRound = yield call(
-    updateInterviewRoundApi,
-    payload
-  );
-  yield put(updateInterviewRoundAction(response));
+  yield call(updateInterviewRoundApi, payload);
+  yield put(fetchInterviewRoundsRequest());
 }
 
 function* fetchQAListByInterviewRoundId({

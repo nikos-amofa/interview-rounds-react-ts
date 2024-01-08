@@ -20,16 +20,20 @@ export interface FinalInterviewRound extends BaseInterviewRound {
 
 export type InterviewRounds = [...InterviewRound[], FinalInterviewRound];
 
+export const isInterviewRoundFinal = (
+  interviewRound: InterviewRound | FinalInterviewRound
+): interviewRound is FinalInterviewRound => "finalRoleId" in interviewRound;
+
 export type UpdateInterviewRoundParams =
   | {
       id: number;
-      status: Status;
-      fittingRoleIds?: string[] | null;
+      status: "PASSED" | "FAILED";
+      fittingRoleIds?: string[];
     }
   | {
       id: number;
-      status: Status;
-      finalRoleId?: string | null;
+      status: "PASSED" | "FAILED";
+      finalRoleId?: string;
     };
 
 export interface AddQuestionParams {
@@ -43,4 +47,11 @@ export interface UpdateQAParams {
   qaId: number;
   question?: string;
   answer?: string;
+}
+
+export interface UpdateInterviewRoundStatusParams {
+  interviewRoundId: number;
+  status: Status;
+  fittingRoleIds?: string[];
+  finalRoleId?: string[];
 }

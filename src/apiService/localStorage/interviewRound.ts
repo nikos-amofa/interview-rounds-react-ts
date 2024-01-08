@@ -11,7 +11,7 @@ export const INTERVIEW_ROUNDS: InterviewRounds = [
     id: 1,
     title: "Screening",
     status: "UNLOCKED",
-    statusUpdatedAt: "2023-12-10T10:00:00.000Z",
+    statusUpdatedAt: "2024-01-02T20:00:00.000Z",
     fittingRoleIds: null,
     order: 1,
   },

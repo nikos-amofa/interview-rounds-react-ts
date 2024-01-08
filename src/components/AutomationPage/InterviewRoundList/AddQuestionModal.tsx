@@ -31,6 +31,7 @@ export const AddQuestionModal: FC<AddQuestionModalProps> = ({ open, onClose, onA
 
   const addQuestion = (q: string) => () => {
     onAddQuestion(q);
+    setCustomQuestion("");
   };
 
   return (

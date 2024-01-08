@@ -30,13 +30,21 @@ export const updateInterviewRoundApi = ({
 
   if (idx < 0) throw new Error("Not Found");
 
+  const currentDate = new Date().toISOString();
+
   const response: InterviewRound | FinalInterviewRound = {
     ...list[idx],
     ...data,
-    statusUpdatedAt: new Date().toISOString(),
+    statusUpdatedAt: currentDate,
   };
 
   list[idx] = response;
+
+  // if passed, unlock the next interview round
+  if (idx < list.length - 1 && data.status === "PASSED") {
+    list[idx + 1].status = "UNLOCKED";
+    list[idx + 1].statusUpdatedAt = currentDate;
+  }
   localStorage.setItem(INTERVIEW_ROUNDS_KEY_NAME, JSON.stringify(list));
 
   return response;

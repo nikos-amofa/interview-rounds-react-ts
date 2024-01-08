@@ -53,8 +53,8 @@ Description:
 
 Acceptance Criteria:
 
-- Set up Redux store for `roles`
-- Retrieve the `roles` list from backend and store into Redux on initial page load.
+- Set up Redux store for `roles` (**built in MVP**)
+- Retrieve the `roles` list from backend and store into Redux on initial page load. (**built in MVP**)
 
 ## Backend: API Candidate brief information
 
@@ -96,8 +96,8 @@ Description:
 Acceptance Criteria:
 
 - The automation page header should have candidate profile picture in circle. If the profile picture is not provided, candidate's name initials will be used instead, e.g. for `Alice John`, it will be `AJ`
-- The automation page header should have candidate full name
-- The automation page header should have the role the canddate applied for
+- The automation page header should have candidate full name (**built in MVP**)
+- The automation page header should have the role the canddate applied for (**built in MVP**)
 
 ## Backend: API for Interview Round List
 
@@ -315,14 +315,14 @@ Description:
 
 Acceptance Criteria:
 
-- Render the interview round list
-- Each card should be expandable upon clicking if the `status` is one of `PASSED, FAILED, UNLOCKED`
+- Render the interview round list (**built in MVP**)
+- Each card should be expandable upon clicking if the `status` is one of `PASSED, FAILED, UNLOCKED` (**built in MVP**)
 - Each card should include the following data
-  - Interview round title: e.g. "Round 1: Technical Interview"
-  - Pass icon (green color, circle-check) if `PASSED` status OR fail icon (red color, circle-xmark) if `FAILED` status
+  - Interview round title: e.g. "Round 1: Technical Interview" (**built in MVP**)
+  - Pass icon (green color, circle-check) if `PASSED` status OR fail icon (red color, circle-xmark) if `FAILED` status (**built in MVP**)
   - The date of status changed, if the status is one of `PASSED, FAILED, UNLOCKED`
   - The fitting roles for current candidate based on the interview, if the status is `PASSED`
-- The card with status `UNLOCKED` will have grey border and text color
+- The card with status `UNLOCKED` will be disabled (**built in MVP**)
 
 ## Backend: API for Question and Answer list for certain interview round
 
@@ -478,18 +478,18 @@ Description:
 
 Acceptance Criteria:
 
-- After expanding the interview round card, the button "Add a Question" shows up
-- Clicking the button opens a modal with title "Add a Question"
-- Two blocks in the modal
+- [x] After expanding the interview round card, the button "Add a Question" shows up
+- [x] Clicking the button opens a modal with title "Add a Question"
+- [x] Two blocks in the modal
   - Select a Question:
-    - The block title is "Select a Question"
-    - There's an input box with placeholder "Search Questoin" to type in the keyword to search questions
-    - Use debounce for search keyword typing
-    - Under the input box, there's a search results
-    - Use the API endpoint `get("/interview/questions?keyword=React")` and reference ticket `Backend: Return Question list`
+    - [x] The block title is "Select a Question"
+    - [x] There's an input box with placeholder "Search Questoin" to type in the keyword to search questions
+    - [x] Use debounce for search keyword typing
+    - [x] Under the input box, there's a list of search results
+    - [x] Use the API endpoint `get("/interview/questions?keyword=React")` and reference ticket `Backend: Return Question list`
     - There's a pagination for search results, but it'll be skipped for MVP
-    - Upon selecting a question, send API request to add the question. Use endpoint `post("/question_answer")` and reference ticket `Backend: API to add question for certain interview round`
-    - Upon successful response, close the modal and add the question to the question list in the interview round card
+    - [x] Upon selecting a question, send API request to add the question. Use endpoint `post("/question_answer")` and reference ticket `Backend: API to add question for certain interview round`
+    - [x] Upon successful response, close the modal and add the question to the question list in the interview round card
   - Custom Question:
     - This will be left for another ticket
 
@@ -510,12 +510,12 @@ Description:
 
 Acceptance Criteria:
 
-- In the Add Question Modal, under the "Select a Question" block, there's another block "Custom Question"
-- Below the title is an inputbox with placeholder "Write your custom question"
-- Next to the inputbox is a button "Add"
-- The button is disabled until any text is input in the inputbox
-- Upon clicking the Add button, send API request to add the question. Use endpoint `post("/question_answer")` and reference ticket `Backend: API to add question for certain interview round`
-- Upon successful response, close the modal and add the question to the question list in the interview round card
+- [x] In the Add Question Modal, under the "Select a Question" block, there's another block "Custom Question"
+- [x] Below the title is an inputbox with placeholder "Write your custom question"
+- [x] Next to the inputbox is a button "Add"
+- [x] The button is disabled until any text is input in the inputbox
+- [x] Upon clicking the Add button, send API request to add the question. Use endpoint `post("/question_answer")` and reference ticket `Backend: API to add question for certain interview round`
+- [x] Upon successful response, close the modal and add the question to the question list in the interview round card
 
 ## Frontend: QA list in the interview round card
 
@@ -530,11 +530,12 @@ Description:
 
 Acceptance Criteria:
 
-- Each QA item has the interviewer's profile picture
-- Next to the profile picture is the question text selected by the interviewer
-- Next to the question text, there're two icon buttons, `pencil`(Change) and `trash`(Delete)
-- Under the line is a textarea to write the answers of the candidate or interviewer's feedback with placeholder "Candidate's answer or questioner's feedback"
+- [x] Each QA item has the interviewer's profile picture
+- [x] Next to the profile picture is the question text selected by the interviewer
+- [x] Next to the question text, there're two icon buttons, `pencil`(Change) and `trash`(Delete), and `Save Answer` button
+- [x] Under the line is a textarea to write the answers of the candidate or interviewer's feedback with placeholder "Candidate's answer or questioner's feedback"
 - The buttons and textarea is enabled to the interviewer who created the question
+- [x] Click `Save Answer` button to save the answer
 - Upon clicking the icon button "Change", open the edit modal
 - Upon clicking the icon button "Delete", open a confirmation modal and delete the question. Use the endpoint `delete("/question_answers/{id}")`
 
@@ -567,11 +568,11 @@ OR
 
 Description:
 
-- Under the QA list, there's a block "Fitting role" with a list of roles with checkbox
-- The decider will can select the fitting roles for current candidate
-- For final round, it will be "Final role" with radio option, instead of checkbox
-- After select, click "Pass" button to pass
-- Or click "Fail" button to fail the user
+- [x] Under the QA list, there's a selector for "Fitting roles" or "Final Role" for final interview round
+- [x] The interviewer can select the fitting roles for current candidate
+- [x] After select, click "Pass" button to pass
+- [x] Or click "Fail" button to fail the user
+- [x] Passing the current interview round should unlock the next interview round
 
 ---
 
@@ -581,8 +582,9 @@ Description:
 
 1. Add discussion/comment feature for each interview round card, similar to Jira comment feature. This can be used to decider's final note why pass/fail the candidate
 2. Upon clicking the Pass/Fail button, open email list for the decider to select email to the candidate with "Reply to" current user's email for the Pass/Fail email. This can make sure that the candidate is notified about the next step schedule or failed.
-3. When an interviewer mutates some data to the database, it should be notified OR updated to all interviewers working on the same automation page. This can be done via websocket or polling
+3. Only the authed decider among interviewers have enabled buttons "Pass" and "Fail"
+4. When an interviewer mutates some data to the database, it should be notified OR updated to all interviewers working on the same automation page. This can be done via websocket or polling
    - notification: "Page content has been updated, please refresh the page to see the updated results!"
    - synchronozation: update the contents on the client-side
-4. The fitting roles of the candidate can be added to the API endpoint `get("/interview/questions?keyword=React&fitting_roles=[senior_software_engineer,fullstack_engineer]")` so machine learning system can be used to suggest the questions
-5. The questions by the endpoint above can be classified by the role, e.g. questions for software engineer, questions for engineering manager, etc.
+5. The fitting roles of the candidate can be added to the API endpoint `get("/interview/questions?keyword=React&fitting_roles=[senior_software_engineer,fullstack_engineer]")` so machine learning system can be used to suggest the questions
+6. The questions by the endpoint above can be classified by the role, e.g. questions for software engineer, questions for engineering manager, etc.
