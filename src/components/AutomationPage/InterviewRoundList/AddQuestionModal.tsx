@@ -35,7 +35,7 @@ export const AddQuestionModal: FC<AddQuestionModalProps> = ({ open, onClose, onA
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={onClose} PaperProps={{ style: { width: "600px" } }}>
       <DialogTitle>Add a Question</DialogTitle>
 
       <DialogContent>
