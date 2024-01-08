@@ -583,8 +583,9 @@ Description:
 1. Add discussion/comment feature for each interview round card, similar to Jira comment feature. This can be used to decider's final note why pass/fail the candidate
 2. Upon clicking the Pass/Fail button, open email list for the decider to select email to the candidate with "Reply to" current user's email for the Pass/Fail email. This can make sure that the candidate is notified about the next step schedule or failed.
 3. Only the authed decider among interviewers have enabled buttons "Pass" and "Fail"
-4. When an interviewer mutates some data to the database, it should be notified OR updated to all interviewers working on the same automation page. This can be done via websocket or polling
+4. Field `category` can be added to the QA to class the question type. e.g. "cultural", "technical", "communication"
+5. When an interviewer mutates some data to the database, it should be notified OR updated to all interviewers working on the same automation page. This can be done via websocket or polling
    - notification: "Page content has been updated, please refresh the page to see the updated results!"
    - synchronozation: update the contents on the client-side
-5. The fitting roles of the candidate can be added to the API endpoint `get("/interview/questions?keyword=React&fitting_roles=[senior_software_engineer,fullstack_engineer]")` so machine learning system can be used to suggest the questions
-6. The questions by the endpoint above can be classified by the role, e.g. questions for software engineer, questions for engineering manager, etc.
+6. The fitting roles of the candidate can be added to the API endpoint `get("/interview/questions?keyword=React&fitting_roles=[senior_software_engineer,fullstack_engineer]")` so machine learning system can be used to suggest the questions
+7. The questions by the endpoint above can be classified by the role, e.g. questions for software engineer, questions for engineering manager, etc.
