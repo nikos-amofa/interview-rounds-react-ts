@@ -16,3 +16,7 @@ cd reffie-me-interview-round-automation-react-ts
 yarn
 yarn dev
 ```
+
+- This project uses localStorage for API mock. Initially, there's no data in the local storage, so you will see text "Fetching...".
+- Click button "Reset LocalStorage" on the top left and refresh the page
+- The interview automation list will show up. Now play around!
