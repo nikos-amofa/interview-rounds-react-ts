@@ -1,4 +1,4 @@
-# Reffie.me Take Home Interview - Tech Design
+# Interview Rounds Process Tech Design
 
 ## Backend: API for roles list
 
@@ -64,7 +64,7 @@ Summary:
 
 Description:
 
-- There's a header in the interview automation page
+- There's a header in the interview process page
 - The header includes candidate's profile picture, name, and role title the candidate applied for
 - This API is to provide the information to the frontend
 
@@ -81,23 +81,23 @@ Acceptance Criteria:
 }
 ```
 
-## Frontend: Build the the initial automation with header
+## Frontend: Build the the initial with header
 
 Summary
 
-- Prepare the initial automation page with header for candidate information
+- Prepare the initial page with header for candidate information
 
 Description:
 
-- This is the initla ticket for the automation page
+- This is the initla ticket for the page
 - There should be the header with candidate profile picture, name, and the role candidate applied for(`Senior FullStack Developer`, `Junior Backend Developer`, `Engineering Manager`, etc.)
 - The `roles` data stored in Redux can be used to get the role title from `role_id`
 
 Acceptance Criteria:
 
-- The automation page header should have candidate profile picture in circle. If the profile picture is not provided, candidate's name initials will be used instead, e.g. for `Alice John`, it will be `AJ`
-- The automation page header should have candidate full name (**built in MVP**)
-- The automation page header should have the role the canddate applied for (**built in MVP**)
+- The page header should have candidate profile picture in circle. If the profile picture is not provided, candidate's name initials will be used instead, e.g. for `Alice John`, it will be `AJ`
+- The page header should have candidate full name (**built in MVP**)
+- The page header should have the role the canddate applied for (**built in MVP**)
 
 ## Backend: API for Interview Round List
 
@@ -107,7 +107,7 @@ Summary:
 
 Description:
 
-- On initial visit of the automation page, the frontend should see the list of cards, each card for each round.
+- On initial visit of the page, the frontend should see the list of cards, each card for each round.
 - Each card doesn't show any detailed information until it's expanded, so a list of brief information will be sent via this API.
 - The fields to be returned in the list are `id, title, status, order, status_updated_at, fitting_role_ids`
 - The field `status_updated_at` is used to store when the candidate passed/failed certain round
@@ -299,11 +299,11 @@ NOTE:
 - The `question_id` is intentionally removed in the results
 - In the table `question_answer`, the question text itself will be stored instead of `question_id`. This will be much human readable in the database
 
-## Frontend: Automation Interview Round List and Card
+## Frontend: Interview Round List and Card
 
 Summary:
 
-- Render automation interview round list in a brief card format
+- Render interview round list in a brief card format
 
 Description:
 
@@ -584,7 +584,7 @@ Description:
 2. Upon clicking the Pass/Fail button, open email list for the decider to select email to the candidate with "Reply to" current user's email for the Pass/Fail email. This can make sure that the candidate is notified about the next step schedule or failed.
 3. Only the authed decider among interviewers have enabled buttons "Pass" and "Fail"
 4. Field `category` can be added to the QA to class the question type. e.g. "cultural", "technical", "communication"
-5. When an interviewer mutates some data to the database, it should be notified OR updated to all interviewers working on the same automation page. This can be done via websocket or polling
+5. When an interviewer mutates some data to the database, it should be notified OR updated to all interviewers working on the same page. This can be done via websocket or polling
    - notification: "Page content has been updated, please refresh the page to see the updated results!"
    - synchronozation: update the contents on the client-side
 6. The fitting roles of the candidate can be added to the API endpoint `get("/interview/questions?keyword=React&fitting_roles=[senior_software_engineer,fullstack_engineer]")` so machine learning system can be used to suggest the questions

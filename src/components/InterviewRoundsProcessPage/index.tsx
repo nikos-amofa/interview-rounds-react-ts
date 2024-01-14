@@ -7,7 +7,7 @@ import { fetchInterviewRoundsRequest } from "@/store/sagas/interviewRoundSaga";
 import { Container } from "@mui/material";
 import { InterviewRoundList } from "./InterviewRoundList";
 
-export const AutomationPage = () => {
+export const InterviewRoundsProcessPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
