@@ -10,3 +10,7 @@ export const resetLocalStorage = () => {
   localStorage.setItem(QUESTION_LIST_KEY_NAME, JSON.stringify(QUESTION_LIST));
   localStorage.setItem(ROLE_LIST_KEY_NAME, JSON.stringify(ROLE_LIST));
 };
+
+export const isEmptyLocalStorage = () => {
+  return !localStorage.getItem(CANDIDATE_KEY_NAME);
+};

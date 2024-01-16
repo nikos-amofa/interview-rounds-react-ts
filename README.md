@@ -13,8 +13,8 @@ yarn
 yarn dev
 ```
 
-- This project uses localStorage for API mock. Initially, there's no data in the local storage, so you will see text "Fetching...".
-- Click button "Reset LocalStorage" on the top left and refresh the page
+- This project uses localStorage for API mock. If the local storage is empty, it automatically resets the local storage with default data
+- You can click button "Reset LocalStorage" on the top left to reset the local storage data and refresh the page to see the results.
 - The interview rounds list will show up. Now play around!
 
 ## Project description
