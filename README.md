@@ -1,6 +1,8 @@
 # Interview Rounds Process
 
-This project is to show off my React skillsets
+This project is to show off my React skillsets.
+
+Live online link: https://interview-rounds-process.netlify.app/
 
 ## Steps to Run
 
