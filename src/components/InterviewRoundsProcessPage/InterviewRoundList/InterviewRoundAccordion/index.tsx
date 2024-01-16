@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import { SectionDivider } from "../SectionDivider";
 import { RoleSelector } from "./RoleSelector";
-import { dateTimeFormatter, makeSelectedRoleIds } from "./helpers";
+import { makeSelectedRoleIds, timeAgoFormatter } from "./helpers";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
@@ -40,6 +40,21 @@ export const InterviewRoundAccordion: FC<InterviewRoundAccordionProps> = ({
   const interviewRoundUnlocked = data.status === "UNLOCKED";
   const dispatch = useDispatch();
   const [selectedRoleIds, setSelectedRoleIds] = useState<string[]>(makeSelectedRoleIds(data));
+  const [timeAgo, setTimeAgo] = useState<null | string>(null);
+
+  useEffect(() => {
+    const handler = setInterval(() => {
+      if (data.statusUpdatedAt) {
+        setTimeAgo(timeAgoFormatter(new Date(data.statusUpdatedAt).getTime()));
+      } else {
+        setTimeAgo(null);
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(handler);
+    };
+  }, [data.statusUpdatedAt]);
 
   useEffect(() => {
     // fetch QAList only when the accordion is expanded
@@ -86,7 +101,7 @@ export const InterviewRoundAccordion: FC<InterviewRoundAccordionProps> = ({
           </Typography>
           {data.status === "PASSED" && <CheckCircleOutlineIcon color="success" fontSize="large" />}
           {data.status === "FAILED" && <HighlightOffIcon color="error" fontSize="large" />}
-          {!!data.statusUpdatedAt && dateTimeFormatter(data.statusUpdatedAt)}
+          {timeAgo}
         </Box>
       </AccordionSummary>
       <AccordionDetails>
