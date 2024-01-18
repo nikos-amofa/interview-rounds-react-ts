@@ -1,13 +1,8 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { setCandidateDataAction } from "../features/candidateSlice";
+import { setCandidateDataAction } from "../features/candidate.slice";
 import { fetchCandidateFromApi } from "@/apiService/candidate";
 import { Candidate } from "@/types/candidate";
-
-// action types
-const FETCH_CANDIDATE_DATA_REQUEST = "FETCH_CANDIDATE_DATA_REQUEST";
-
-// Action creators
-export const fetchCandidateDataRequest = () => ({ type: FETCH_CANDIDATE_DATA_REQUEST });
+import { FETCH_CANDIDATE_DATA_REQUEST } from "../actions/types";
 
 function* fetchCandidateData() {
   const data: Candidate = yield call(fetchCandidateFromApi);

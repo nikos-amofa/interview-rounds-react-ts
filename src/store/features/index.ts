@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { roleReducer } from "./roleSlice";
-import { candidateReducer } from "./candidateSlice";
-import { interviewRoundReducer } from "./interviewRoundSlice";
+import { roleReducer } from "./role.slice";
+import { candidateReducer } from "./candidate.slice";
+import { interviewRoundReducer } from "./interviewRound.slice";
 
 export const rootReducer = combineReducers({
   role: roleReducer,

@@ -14,7 +14,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateQARequest } from "@/store/sagas/interviewRoundSaga";
+import { updateQARequest } from "@/store/actions/interviewRound.action";
 
 const ContainerPaper = styled(Paper)(({ theme }) => ({
   margin: theme.spacing(2, 0),

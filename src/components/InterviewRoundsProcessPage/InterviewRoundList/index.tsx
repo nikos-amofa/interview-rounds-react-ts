@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { InterviewRoundAccordion } from "./InterviewRoundAccordion";
 import { useState } from "react";
 import { AddQuestionModal } from "./AddQuestionModal";
-import { addQuestionRequest } from "@/store/sagas/interviewRoundSaga";
+import { addQuestionRequest } from "@/store/actions/interviewRound.action";
 import { Box } from "@mui/material";
 
 export const InterviewRoundList = () => {

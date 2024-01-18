@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import {
   fetchQAListByInterviewRoundIdRequest,
   updateInterviewRoundRequest,
-} from "@/store/sagas/interviewRoundSaga";
+} from "@/store/actions/interviewRound.action";
 import { QAList } from "./QAList";
 import {
   Accordion,
