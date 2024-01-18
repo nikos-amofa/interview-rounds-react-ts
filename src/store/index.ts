@@ -3,7 +3,15 @@ import { PreloadedState, configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./features";
 import { rootSaga } from "./sagas";
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware({
+  onError: (error, { sagaStack }) => {
+    console.error(error, sagaStack);
+    // sentryLog(`error in saga: ${sagaStack}`, {
+    //   error,
+    //   stack: sagaStack,
+    // });
+  },
+});
 
 export function setupStore(preloadedState?: PreloadedState<RootState>) {
   const store = configureStore({

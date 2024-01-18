@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import {
   setQAListByInterviewRoundIdAction,
   setInterviewRoundListAction,
@@ -71,10 +71,19 @@ function* updateQA({ payload }: UpdateQAAction) {
   );
 }
 
+/**
+ * `takeEvery` allows multiple fetchData instances to be started concurrently
+ * `takeLatest` allows only one fetchData task to run at any moment. And it will be the latest started task.
+ * If a previous task is still running when another fetchData task is started,
+ * the previous task will be automatically cancelled.
+ *
+ * `takeLatest` typically can be used for data fetch without specific id
+ * `takeEvery` typically can be used for data fetch with specific id, or posting new data, etc.
+ */
 export function* interviewRoundSaga() {
   yield takeLatest(FETCH_INTERVIEW_ROUNDS_REQUEST, fetchInterviewRounds);
-  yield takeLatest(UPDATE_INTERVIEW_ROUND_REQUEST, updateInterviewRound);
-  yield takeLatest(FETCH_QA_LIST_BY_INTERVIEW_ROUND_ID_REQUEST, fetchQAListByInterviewRoundId);
-  yield takeLatest(ADD_QUESTION_TO_INTERVIEW_ROUND_REQUEST, addQuestionToInterviewRound);
-  yield takeLatest(UPDATE_QA_REQUEST, updateQA);
+  yield takeEvery(UPDATE_INTERVIEW_ROUND_REQUEST, updateInterviewRound);
+  yield takeEvery(FETCH_QA_LIST_BY_INTERVIEW_ROUND_ID_REQUEST, fetchQAListByInterviewRoundId);
+  yield takeEvery(ADD_QUESTION_TO_INTERVIEW_ROUND_REQUEST, addQuestionToInterviewRound);
+  yield takeEvery(UPDATE_QA_REQUEST, updateQA);
 }
