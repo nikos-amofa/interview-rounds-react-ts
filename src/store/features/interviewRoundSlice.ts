@@ -34,7 +34,7 @@ export const interviewRoundSlice = createSlice({
       }
       state.list[idx] = data;
     },
-    addQAListByInterviewRoundIdAction: (
+    setQAListByInterviewRoundIdAction: (
       state,
       action: PayloadAction<{
         interviewRoundId: number;
@@ -74,7 +74,7 @@ export const interviewRoundSlice = createSlice({
 export const {
   setInterviewRoundListAction,
   updateInterviewRoundAction,
-  addQAListByInterviewRoundIdAction,
+  setQAListByInterviewRoundIdAction,
   addQAToInterviewRoundAction,
   updateQAAction,
 } = interviewRoundSlice.actions;

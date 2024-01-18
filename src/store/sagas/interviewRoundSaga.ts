@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import {
-  addQAListByInterviewRoundIdAction,
+  setQAListByInterviewRoundIdAction,
   setInterviewRoundListAction,
   addQAToInterviewRoundAction,
   updateQAAction,
@@ -79,7 +79,7 @@ function* fetchQAListByInterviewRoundId({
 }: FetchQAListByInterviewRoundIdAction) {
   const qaList: QA[] = yield call(fetchQAListByInterviewRoundIdApi, interviewRoundId);
   yield put(
-    addQAListByInterviewRoundIdAction({
+    setQAListByInterviewRoundIdAction({
       interviewRoundId,
       qaList,
     })
