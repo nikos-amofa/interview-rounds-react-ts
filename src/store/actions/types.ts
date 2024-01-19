@@ -17,3 +17,6 @@ export const UPDATE_QA_REQUEST = "UPDATE_QA_REQUEST";
 
 // role
 export const FETCH_ROLE_LIST_REQUEST = "FETCH_ROLE_LIST_REQUEST";
+
+// redux-saga fork example
+export const SHORT_PERIOD_REQUEST = "SHORT_PERIOD_REQUEST";

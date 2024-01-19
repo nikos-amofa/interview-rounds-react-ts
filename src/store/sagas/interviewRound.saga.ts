@@ -63,6 +63,7 @@ function* addQuestionToInterviewRound({ payload }: AddQuestionAction) {
   } catch (err) {
     // error handling
     console.error(err);
+    // yield call(sentryLog, err)
     // yield put(errorAction(err));
   }
 }
