@@ -52,13 +52,19 @@ function* fetchQAListByInterviewRoundId({
 }
 
 function* addQuestionToInterviewRound({ payload }: AddQuestionAction) {
-  const response: QA = yield call(addQuestionToInterviewRoundApi, payload);
-  yield put(
-    addQAToInterviewRoundAction({
-      interviewRoundId: payload.interviewRoundId,
-      qa: response,
-    })
-  );
+  try {
+    const response: QA = yield call(addQuestionToInterviewRoundApi, payload);
+    yield put(
+      addQAToInterviewRoundAction({
+        interviewRoundId: payload.interviewRoundId,
+        qa: response,
+      })
+    );
+  } catch (err) {
+    // error handling
+    console.error(err);
+    // yield put(errorAction(err));
+  }
 }
 
 function* updateQA({ payload }: UpdateQAAction) {
